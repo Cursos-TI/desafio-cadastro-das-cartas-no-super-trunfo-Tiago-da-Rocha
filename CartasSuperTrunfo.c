@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 // Desafio Super Trunfo - Países
@@ -21,6 +20,8 @@ int main() {
     float area_1;
     float pib_1;
     int numPonTuristicos_1;
+    float denPopulacional_1;
+    float pibPCapita_1;
     // Fim da Declaração de Variáveis da Carta 1
 
 
@@ -37,6 +38,8 @@ int main() {
     float area_2;
     float pib_2;
     int numPonTuristicos_2;
+    float denPopulacional_2;
+    float pibPCapita_2;
     // Fim da Declaração de Variáveis da Carta 2
 
 
@@ -64,11 +67,17 @@ int main() {
     printf("Digite a área da cidade em quilômetros quadrados:\n");
     scanf("%f", &area_1);
 
-    printf("Digite o PIB da cidade:\n");
+    printf("Digite o PIB da cidade(não use pontos ou vírgulas):\n");
     scanf("%f", &pib_1);
 
     printf("Digite a quantidade de pontos turísticos na cidade:\n");
     scanf("%d", &numPonTuristicos_1);
+
+    // Cálculo Densidade Populacional
+    denPopulacional_1 = (float) populacao_1 / area_1;
+
+    // Cálculo PIB per Capita
+    pibPCapita_1 = pib_1 / (float) populacao_1;
     // Fim da Leitura da Carta 1
 
 
@@ -97,12 +106,18 @@ int main() {
     printf("Digite a área da cidade em quilômetros quadrados:\n");
     scanf("%f", &area_2);
 
-    printf("Digite o PIB da cidade:\n");
+    printf("Digite o PIB da cidade(não use pontos ou vírgulas):\n");
     scanf("%f", &pib_2);
 
     printf("Digite a quantidade de pontos turísticos na cidade:\n");
     scanf("%d", &numPonTuristicos_2);
-    // Fim da Leitura da Carta 1
+
+    // Cálculo Densidade Populacional
+    denPopulacional_2 = (float) populacao_2 / area_2;
+
+    // Cálculo PIB per Capita
+    pibPCapita_2 = pib_2 / (float) populacao_2;
+    // Fim da Leitura da Carta 2
 
     printf("\n");
     printf("Cartas Definidas Com Sucesso. Parabéns!\n");
@@ -110,7 +125,7 @@ int main() {
 
     // Início da Vizualização das Cartas
 
-    printf("Visualização das Cartas\n\n");
+    printf("Visualização das Cartas\n");
 
     // Saída dos Dados da Carta 1
     printf("Carta 1:\n");
@@ -121,9 +136,13 @@ int main() {
     printf("Área: %.2f Km2\n", area_1);
     printf("PIB: %.2f bilhões de reais\n", pib_1);
     printf("Número de Pontos Turísticos: %d\n", numPonTuristicos_1);
+    printf("Densidade Populacional: %.2f hab/Km2\n", denPopulacional_1);
+    printf("PIB per Capita: %.2f reais\n", pibPCapita_1);
     // Fim da Vizualização da Carta 1
 
+
     printf("\n"); // Espaço entre as cartas
+
 
     // Saída dos Dados da Carta 2
     printf("Carta 2:\n");
@@ -131,15 +150,21 @@ int main() {
     printf("Código: %s\n", codCarta_2);
     printf("Nome da Cidade: %s\n", cidade_2);
     printf("População: %d\n", populacao_2);
-    printf("Área: %.2f Km\n", area_2);
+    printf("Área: %.2f Km2\n", area_2);
     printf("PIB: %.2f bilhões de reais\n", pib_2);
-    printf("Número de Pontos Turísticos: %d\n\n", numPonTuristicos_2);
+    printf("Número de Pontos Turísticos: %d\n", numPonTuristicos_2);
+    printf("Densidade Populacional: %.2f hab/Km2\n", denPopulacional_2);
+    printf("PIB per Capita: %.2f reais\n", pibPCapita_2);
     // Fim da Vizualização da Carta 2
 
-    // Fim do Programa
 
+    // Fim do Programa
+    printf("----------------------------------------\n");
+    printf("Fim do Programa!\n");
+    
     printf("Você se divertiu? (Sim/Claro): ");
     scanf("%s", escFinal);
+
 
     return 0;
 }
