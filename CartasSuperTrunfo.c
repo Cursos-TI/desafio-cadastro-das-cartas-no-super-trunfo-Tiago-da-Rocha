@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-// Desafio Super Trunfo - Países
+// Desafio Mestre Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
 // Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
 // Siga os comentários para implementar cada parte do desafio.
@@ -21,6 +20,9 @@ int main() {
     float area_1;
     float pib_1;
     int numPonTuristicos_1;
+    float denPopulacional_1;
+    float pibPCapita_1;
+    float superPoder_1;
     // Fim da Declaração de Variáveis da Carta 1
 
 
@@ -37,6 +39,9 @@ int main() {
     float area_2;
     float pib_2;
     int numPonTuristicos_2;
+    float denPopulacional_2;
+    float pibPCapita_2;
+    float superPoder_2;
     // Fim da Declaração de Variáveis da Carta 2
 
 
@@ -64,11 +69,20 @@ int main() {
     printf("Digite a área da cidade em quilômetros quadrados:\n");
     scanf("%f", &area_1);
 
-    printf("Digite o PIB da cidade:\n");
+    printf("Digite o PIB da cidade(não use pontos ou vírgulas):\n");
     scanf("%f", &pib_1);
 
     printf("Digite a quantidade de pontos turísticos na cidade:\n");
     scanf("%d", &numPonTuristicos_1);
+
+    // Cálculo Densidade Populacional
+    denPopulacional_1 = (float) populacao_1 / area_1;
+
+    // Cálculo PIB per Capita
+    pibPCapita_1 = pib_1 / (float) populacao_1;
+
+    // Cálculo do Super Poder
+    superPoder_1 = (float) populacao_1 + area_1 + pib_1 + (float)numPonTuristicos_1 + pibPCapita_1 + (area_1 / (float) populacao_1);
     // Fim da Leitura da Carta 1
 
 
@@ -97,12 +111,21 @@ int main() {
     printf("Digite a área da cidade em quilômetros quadrados:\n");
     scanf("%f", &area_2);
 
-    printf("Digite o PIB da cidade:\n");
+    printf("Digite o PIB da cidade(não use pontos ou vírgulas):\n");
     scanf("%f", &pib_2);
 
     printf("Digite a quantidade de pontos turísticos na cidade:\n");
     scanf("%d", &numPonTuristicos_2);
-    // Fim da Leitura da Carta 1
+
+    // Cálculo Densidade Populacional
+    denPopulacional_2 = (float) populacao_2 / area_2;
+
+    // Cálculo PIB per Capita
+    pibPCapita_2 = pib_2 / (float) populacao_2;
+
+    // Cálculo do Super Poder
+    superPoder_2 = (float) populacao_2 + area_2 + pib_2 + (float)numPonTuristicos_2 + pibPCapita_2 + (area_2 / (float) populacao_2);
+    // Fim da Leitura da Carta 2
 
     printf("\n");
     printf("Cartas Definidas Com Sucesso. Parabéns!\n");
@@ -121,9 +144,14 @@ int main() {
     printf("Área: %.2f Km2\n", area_1);
     printf("PIB: %.2f bilhões de reais\n", pib_1);
     printf("Número de Pontos Turísticos: %d\n", numPonTuristicos_1);
+    printf("Densidade Populacional: %.2f hab/Km2\n", denPopulacional_1);
+    printf("PIB per Capita: %.2f reais\n", pibPCapita_1);
+    printf("Super Poder: %.2f\n", superPoder_1);
     // Fim da Vizualização da Carta 1
 
+
     printf("\n"); // Espaço entre as cartas
+
 
     // Saída dos Dados da Carta 2
     printf("Carta 2:\n");
@@ -134,15 +162,37 @@ int main() {
     printf("Área: %.2f Km2\n", area_2);
     printf("PIB: %.2f bilhões de reais\n", pib_2);
     printf("Número de Pontos Turísticos: %d\n", numPonTuristicos_2);
+    printf("Densidade Populacional: %.2f hab/Km2\n", denPopulacional_2);
+    printf("PIB per Capita: %.2f reais\n", pibPCapita_2);
+    printf("Super Poder: %.2f\n", superPoder_2);
     // Fim da Vizualização da Carta 2
+
+
+    // Início da Comparação(batalha) das Cartas
+    printf("\n");
+    printf("Visualização da Carta Vencedora\n");
+    printf("\n");
+
+
+    printf("Comparação de Cartas:\n");
+    printf("População: Carta 1 venceu (%d)\n", populacao_1 > populacao_2);
+    printf("Área: Carta 1 venceu (%d)\n", area_1 > area_2);
+    printf("PIB: Carta 1 venceu (%d)\n", pib_1 > pib_2);
+    printf("Pontos Turísticos: Carta 1 venceu (%d)\n", numPonTuristicos_1 > numPonTuristicos_2);
+    printf("Densidade Populacional: Carta 2 venceu (%d)\n", denPopulacional_1 < denPopulacional_2);
+    printf("PIB per Capita: Carta 1 venceu (%d)\n", pibPCapita_1 > pibPCapita_2);
+    printf("Super Poder: Carta 1 venceu (%d)\n", superPoder_1 > superPoder_2);
+
+
+
 
     // Fim do Programa
     printf("----------------------------------------\n");
     printf("Fim do Programa!\n");
-
+    
     printf("Você se divertiu? (Sim/Claro): ");
     scanf("%s", escFinal);
 
-    system("pause");
+
     return 0;
 }
